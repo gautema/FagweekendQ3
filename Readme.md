@@ -1,9 +1,9 @@
 # Faghelg Q3 2011
 
 ## Forutsetninger
-Visual Studio 2010 SP1
-ASP.NET MVC 3
-NuGet
++ Visual Studio 2010 SP1
++ ASP.NET MVC 3
++ NuGet
 
 ## Oppskrift
 
