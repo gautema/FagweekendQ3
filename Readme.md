@@ -10,6 +10,7 @@
 - Hent prosjekt denne kildekoden fra github.Bruk enten download link oppe til høyre, eller klone med git.
 - Kompiler og start prosjektet. Se på hvordan oppdatering av artister er gjort.
 - Hent StructureMap-MVC3 fra NuGet
+- Ta inn DataStore fra constructoren.
 - Lag et action filter for å logge til Debug.WriteLine med hvilke actions som kalles.
 - Ta utgangspunkt i Artist og lag tilsvarende for Album.
 - Lag en View Model for Album.
