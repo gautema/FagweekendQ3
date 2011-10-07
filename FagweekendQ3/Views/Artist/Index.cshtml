@@ -1,0 +1,16 @@
+﻿@using FagweekendQ3.ViewModels
+@model IEnumerable<ArtistViewModel>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>Artists</h2>
+<div>
+    <ul>
+        @foreach( var artist in Model)
+        {
+            <li>@artist.Name - @Html.ActionLink("Rediger","Edit",new {artist.Id})</li>
+        }
+    </ul>
+    @Html.ActionLink("Ny","Edit", new {Id = Guid.Empty})
+</div>

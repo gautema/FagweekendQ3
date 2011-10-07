@@ -14,39 +14,39 @@ namespace FagweekendQ3
                                                        new Artist("Pantera", new[]
                                                                                  {
                                                                                      new Album("Vulgar Display of Power",
-                                                                                         new List<Song>
+                                                                                         new List<Track>
                                                                                              {
-                                                                                                 new Song("Walk"),
-                                                                                                 new Song("This Love"),
-                                                                                                 new Song("Mouth For War")
+                                                                                                 new Track("Walk"),
+                                                                                                 new Track("This Love"),
+                                                                                                 new Track("Mouth For War")
                                                                                              },
                                                                                          genres[0]),
                                                                                      new Album("Cowboys From Hell",
-                                                                                               new List<Song>
+                                                                                               new List<Track>
                                                                                                    {
-                                                                                                       new Song("Cemetary Gates"),
-                                                                                                       new Song("Cowboys From Hell")
+                                                                                                       new Track("Cemetary Gates"),
+                                                                                                       new Track("Cowboys From Hell")
                                                                                                    }, genres[0])
                                                                                  }),
                                                        new Artist("The Smiths",
                                                                   new[]
                                                                       {
                                                                           new Album("The Queen Is Dead",
-                                                                                    new List<Song>
+                                                                                    new List<Track>
                                                                                         {
-                                                                                            new Song("Frankly, Mr. Shankly"),
-                                                                                            new Song("Cemetry Gates"),
-                                                                                            new Song("Some Girls Are Bigger Than Others")
+                                                                                            new Track("Frankly, Mr. Shankly"),
+                                                                                            new Track("Cemetry Gates"),
+                                                                                            new Track("Some Girls Are Bigger Than Others")
                                                                                         }, genres[1])
                                                                       }),
                                                        new Artist("Lady Gaga",
                                                                   new[]
                                                                       {
                                                                           new Album("The Fame Monster",
-                                                                                    new List<Song>
+                                                                                    new List<Track>
                                                                                         {
-                                                                                            new Song("Bad Romance"),
-                                                                                            new Song("Telephone")
+                                                                                            new Track("Bad Romance"),
+                                                                                            new Track("Telephone")
                                                                                         },
                                                                                     genres[1])
                                                                       }),
@@ -100,23 +100,23 @@ namespace FagweekendQ3
 
     public class Album
     {
-        public Album(string name, IEnumerable<Song> songs, Genre genre)
+        public Album(string name, IEnumerable<Track> songs, Genre genre)
         {
             Name = name;
-            Songs = songs;
+            Tracks = songs;
             Genre = genre;
             Id = Guid.NewGuid();
         }
 
         public Guid Id { get; private set; }
         public string Name { get; private set; }
-        public IEnumerable<Song> Songs { get; private set; }
+        public IEnumerable<Track> Tracks { get; private set; }
         public Genre Genre { get; private set; }
     }
 
-    public class Song
+    public class Track
     {
-        public Song(string name)
+        public Track(string name)
         {
             Name = name;
             Id = Guid.NewGuid();
@@ -138,6 +138,11 @@ namespace FagweekendQ3
         public Guid Id { get; private set; }
         public string Name { get; private set; }
         public IEnumerable<Album> Albums { get; private set; }
+
+        public void ChangeName(string name)
+        {
+            Name = name;
+        }
     }
 
     public class Genre
