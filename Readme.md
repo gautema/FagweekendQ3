@@ -13,7 +13,6 @@
 - Ta inn DataStore fra constructoren.
 - Lag et action filter for å logge til Debug.WriteLine med hvilke actions som kalles.
 - Ta utgangspunkt i Artist og lag tilsvarende for Album.
-- Lag en View Model for Album.
 - Legg på DataAnnotations på view modellen for å validere at kun gyldige album kan lagres i viewet.
 - Lag et testprosjekt.
 - Test at rikitg data kommer ut av album-modellen.
@@ -25,8 +24,7 @@
 - Vis total spilletid på albumet, ved å summere tiden fra tracks.
 - Legg til en boks nederst under hvert album, der man kan legge til tracks. Lagre med AJAX til serveren.
 - Test view modellen din med QUnit (eller Jasmine).
-
-## For de som klarer å komme hit :)
 - Hent album asyncront med AJAX ved henting av side.
 - Lag et action filter for rollestyring.
 - Legg rolleinfo i ViewBag fra ActionFilter og vis på skjermen.
+- Drikk en øl.
