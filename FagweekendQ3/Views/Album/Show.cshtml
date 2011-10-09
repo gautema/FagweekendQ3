@@ -1,0 +1,15 @@
+﻿@using FagweekendQ3.ViewModels
+@model AlbumViewModel
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<h2>Tracks for @Model.Name</h2>
+<div>
+    <ul>
+        @foreach( var track in Model.Tracks)
+        {
+            <li>@track.Name</li>
+        }
+    </ul>
+</div>

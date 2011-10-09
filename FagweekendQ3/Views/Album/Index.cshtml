@@ -1,0 +1,16 @@
+﻿@using FagweekendQ3.ViewModels
+@model IEnumerable<AlbumViewModel>
+@{
+    ViewBag.Title = "Albums";
+}
+
+<h2>Artists</h2>
+<div>
+    <ul>
+        @foreach( var album in Model)
+        {
+            <li>@album.Name - @Html.ActionLink("Show", "Show", new { album.Id }) - @Html.ActionLink("ShowJSON", "ShowJSON", new { album.Id }) -@Html.ActionLink("Rediger", "Edit", new { album.Id })</li>
+        }
+    </ul>
+    @Html.ActionLink("Ny","Edit", new {Id = string.Empty})
+</div>

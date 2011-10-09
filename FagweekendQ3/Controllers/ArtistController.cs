@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
+using FagweekendQ3.DataStore;
 using FagweekendQ3.ViewModels;
 
 namespace FagweekendQ3.Controllers
@@ -12,7 +11,7 @@ namespace FagweekendQ3.Controllers
 
         public ArtistController()
         {
-            _artistStore = new DataStore();
+            _artistStore = new ArtistStore();
         }
 
         public ActionResult Index()
@@ -21,10 +20,10 @@ namespace FagweekendQ3.Controllers
             return View(model);
         }
 
-        public ActionResult Edit(Guid id)
+        public ActionResult Edit(string id)
         {
             ArtistViewModel model;
-            if(id != Guid.Empty)
+            if(id != string.Empty)
             {
                 var artist = _artistStore.Get(id);
                 model = new ArtistViewModel { Id = artist.Id, Name = artist.Name };
@@ -40,14 +39,14 @@ namespace FagweekendQ3.Controllers
         [HttpPost]
         public ActionResult Edit(ArtistViewModel model)
         {
-            if(model.Id != Guid.Empty)
+            if(model.Id != string.Empty)
             {
                 var artist = _artistStore.Get(model.Id);
                 artist.ChangeName(model.Name);
             }
             else
             {
-                _artistStore.Add(new Artist(model.Name, new List<Album>()));
+                _artistStore.Add(model.Name);
             }
 
             return RedirectToAction("Index");

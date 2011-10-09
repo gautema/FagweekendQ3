@@ -1,0 +1,12 @@
+﻿@using FagweekendQ3.ViewModels
+@model AlbumViewModel
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<h2>Tracks for @Model.Name</h2>
+
+    var initialData = @Html.Raw(Json.Encode(Model));
+<div>
+
+</div>

@@ -1,0 +1,14 @@
+﻿@using FagweekendQ3.ViewModels
+@model AlbumViewModel
+@{
+    ViewBag.Title = "Edit album";
+}
+
+<h2>Rediger @Model.Name</h2>
+@using(Html.BeginForm()){
+    @Html.HiddenFor(x => x.Id)
+    @Html.EditorFor(x => x.Name)
+    @Html.EditorFor(x => x.Genre)
+
+    <input type="submit" />
+}
