@@ -1,0 +1,48 @@
+﻿@using FagweekendQ3.ViewModels
+@model AlbumViewModel
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<h2>Tracks for @Model.Name</h2>
+
+
+<p>Name: <span data-bind="text: Name()"></span></p>
+<p>Genre:<span data-bind="text: Genre()"></span></p>
+<p>Total length <span data-bind="text: TotalLength()"></span></p>
+
+<table>
+    <thead><tr>
+        <th>Track</th><th>Name</th><th>Length</th>
+    </tr></thead>
+   <tbody data-bind='template: { name: "trackTemplate", 
+                            foreach: Tracks }'></tbody>
+</table>
+
+
+<script type="text/x-jquery-tmpl" id="trackTemplate">
+    <tr>
+        <td>${TrackNo()}</td>
+        <td>${Name()}</td>
+        <td>${TrackLength()}</td>       
+    </tr>
+</script>
+
+<script type="text/javascript">
+    var rawModel = @Html.Raw(Json.Encode(Model));
+    var viewModel = ko.mapping.fromJS(rawModel);
+    
+    viewModel.TotalLength = ko.dependentObservable(function() {
+        var sum = 0;
+        for (var i = 0; i < this.Tracks().length; i++){
+             sum = sum + this.Tracks()[i].TrackLength();
+        };
+        return (new Date).clearTime()
+          .addSeconds(sum)
+          .toString('H:mm:ss');
+     }, viewModel);
+    
+    
+    ko.applyBindings(viewModel);
+    
+</script>

@@ -25,19 +25,19 @@ namespace FagweekendQ3.Controllers
         public ActionResult Show(string id)
         {
             var album = _albumStore.Get(id);
-            var tracks = album.Tracks.Select(x => new TrackViewModel {Name = x.Name});
+            var tracks = album.Tracks.Select(x => new TrackViewModel { Name = x.Name, TrackLength = x.Length, TrackNo = x.TrackNo });
 
-            var model = new AlbumViewModel { Id = album.Id, Name = album.Name, Tracks = tracks};
+            var model = new AlbumViewModel { Id = album.Id, Name = album.Name, Genre = album.Genre.ToString(), Tracks = tracks};
             
             return View(model);
         }
 
-        public ActionResult ShowJSON(string id)
+        public ActionResult ShowServerJSON(string id)
         {
             var album = _albumStore.Get(id);
-            var tracks = album.Tracks.Select(x => new TrackViewModel { Name = x.Name });
+            var tracks = album.Tracks.Select(x => new TrackViewModel { Name = x.Name, TrackLength = x.Length, TrackNo = x.TrackNo});
 
-            var model = new AlbumViewModel { Id = album.Id, Name = album.Name, Tracks = tracks };
+            var model = new AlbumViewModel { Id = album.Id, Name = album.Name, Genre = album.Genre.ToString(), Tracks = tracks };
 
             return View(model);
         }

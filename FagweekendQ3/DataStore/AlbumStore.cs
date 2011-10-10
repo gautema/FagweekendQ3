@@ -11,30 +11,30 @@ namespace FagweekendQ3.DataStore
                                                      new Album("alb1", "art1", "Vulgar Display of Power",
                                                                new List<Track>
                                                                    {
-                                                                       new Track("Walk"),
-                                                                       new Track("This Love"),
-                                                                       new Track("Mouth For War")
+                                                                       new Track(1,"Walk", 360),
+                                                                       new Track(2,"This Love", 223),
+                                                                       new Track(3,"Mouth For War", 280)
                                                                    },
                                                                Genre.Rock),
                                                      new Album("alb2", "art1", "Cowboys From Hell",
                                                                new List<Track>
                                                                    {
-                                                                       new Track("Cemetary Gates"),
-                                                                       new Track("Cowboys From Hell")
+                                                                       new Track(1,"Cemetary Gates", 231),
+                                                                       new Track(2,"Cowboys From Hell", 384)
                                                                    },
                                                                Genre.Rock),
                                                      new Album("alb3", "art2", "The Queen Is Dead",
                                                                new List<Track>
                                                                    {
-                                                                       new Track("Frankly, Mr. Shankly"),
-                                                                       new Track("Cemetry Gates"),
-                                                                       new Track("Some Girls Are Bigger Than Others")
+                                                                       new Track(1,"Frankly, Mr. Shankly", 1231),
+                                                                       new Track(2,"Cemetry Gates", 211),
+                                                                       new Track(3,"Some Girls Are Bigger Than Others", 234)
                                                                    }, Genre.Pop),
                                                      new Album("alb4", "art3", "The Fame Monster",
                                                                new List<Track>
                                                                    {
-                                                                       new Track("Bad Romance"),
-                                                                       new Track("Telephone")
+                                                                       new Track(1,"Bad Romance",421 ),
+                                                                       new Track(2,"Telephone",554)
                                                                    },
                                                                Genre.Pop)
 
@@ -101,14 +101,18 @@ namespace FagweekendQ3.DataStore
 
     public class Track
     {
-        public Track(string name)
+        public Track(long trackNo, string name, long length)
         {
             Name = name;
             Id = "blabla"; //Generate something unique in datastore
+            TrackNo = trackNo;
+            Length = length;
         }
 
         public string Id { get; private set; }
         public string Name { get; private set; }
+        public long TrackNo { get; private set; }
+        public long Length { get; private set; }
     }
 
     public enum Genre
