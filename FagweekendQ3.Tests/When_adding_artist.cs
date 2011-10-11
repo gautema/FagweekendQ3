@@ -21,7 +21,7 @@ namespace FagweekendQ3.Tests
             _artistStore = new ArtistStore();
             _controller = new ArtistController(_artistStore);
 
-            _controller.Edit(new ArtistViewModel {Id = Guid.Empty.ToString(), Name = "Iron Maiden"});
+            _controller.Edit(new ArtistViewModel {Id = "", Name = "Iron Maiden"});
         }
 
         [Test]

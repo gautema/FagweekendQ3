@@ -82,6 +82,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\LoggingFilter.cs" />
+    <Compile Include="Tools\RequiresNameNotStartingWithA.cs" />
     <Compile Include="ViewModels\ArtistViewModel.cs" />
     <Compile Include="ViewModels\AlbumViewModel.cs" />
     <Compile Include="ViewModels\AddTrackViewModel.cs" />
