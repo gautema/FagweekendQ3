@@ -13,7 +13,7 @@ namespace FagweekendQ3.Controllers
 
         public AlbumController(IAlbumStore albumStore)
         {
-            _albumStore = albumStore;
+            _albumStore = albumStore;   
         }
 
         public ActionResult Index()

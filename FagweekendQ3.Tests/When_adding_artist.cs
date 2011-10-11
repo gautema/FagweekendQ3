@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using FagweekendQ3.Controllers;
 using FagweekendQ3.DataStore;
 using FagweekendQ3.ViewModels;

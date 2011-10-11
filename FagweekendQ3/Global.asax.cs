@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Routing;
 using FagweekendQ3.Tools;
 
@@ -15,6 +11,7 @@ namespace FagweekendQ3
         {
             filters.Add(new HandleErrorAttribute());
             filters.Add(new LoggingFilter());
+            filters.Add(new UserFilter());
         }
 
         public static void RegisterRoutes(RouteCollection routes)
