@@ -8,7 +8,7 @@ namespace FagweekendQ3.Controllers
 {
     public class ArtistController : Controller
     {
-        private IArtistStore _artistStore;
+        private readonly IArtistStore _artistStore;
 
         public ArtistController(IArtistStore artistStore)
         {
@@ -21,6 +21,7 @@ namespace FagweekendQ3.Controllers
             return View(model);
         }
 
+        [Authorize()]
         public ActionResult Edit(string id)
         {
             ArtistViewModel model;
