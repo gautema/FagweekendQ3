@@ -9,7 +9,7 @@
     <ul>
         @foreach( var album in Model)
         {
-            <li>@album.Name - @Html.ActionLink("Show", "Show", new { album.Id }) - @Html.ActionLink("ShowServerJSON", "ShowServerJSON", new { album.Id }) -@Html.ActionLink("Rediger", "Edit", new { album.Id })</li>
+            <li>@album.Name - @Html.ActionLink("Show", "Show", new { album.Id }) - @Html.ActionLink("ShowServerJSON", "ShowServerJSON", new { album.Id }) - @Html.ActionLink("ShowAjax", "ShowAjax", new { album.Id }) -@Html.ActionLink("Rediger", "Edit", new { album.Id })</li>
         }
     </ul>
     @Html.ActionLink("Ny","Edit", new {Id = string.Empty})

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using FagweekendQ3.DataStore;
@@ -20,6 +19,14 @@ namespace FagweekendQ3.Controllers
         {
             var model = _albumStore.GetAll().Select(x => new AlbumViewModel {Id = x.Id, Name = x.Name});
             return View(model);
+        }
+
+        public JsonResult Get(string id)
+        {
+            var album = _albumStore.Get(id);
+            var tracks = album.Tracks.Select(x => new TrackViewModel { Name = x.Name, TrackLength = x.Length, TrackNo = x.TrackNo });
+            var model = new AlbumViewModel { Id = album.Id, Name = album.Name, Genre = album.Genre.ToString(), Tracks = tracks };
+            return Json(model);
         }
 
         public ActionResult Show(string id)
@@ -78,6 +85,16 @@ namespace FagweekendQ3.Controllers
             }
 
             return RedirectToAction("Index");
+        }
+
+        public ActionResult ShowAjax(string id)
+        {
+            var album = _albumStore.Get(id);
+            var tracks = album.Tracks.Select(x => new TrackViewModel { Name = x.Name, TrackLength = x.Length, TrackNo = x.TrackNo });
+
+            var model = new AlbumViewModel { Id = album.Id, Name = album.Name, Genre = album.Genre.ToString(), Tracks = tracks };
+
+            return View(model);
         }
     }
 }
