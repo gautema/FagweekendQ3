@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using FagweekendQ3.DataStore;
 using FagweekendQ3.ViewModels;
@@ -7,7 +8,7 @@ namespace FagweekendQ3.Controllers
 {
     public class ArtistController : Controller
     {
-        private readonly IArtistStore _artistStore;
+        private IArtistStore _artistStore;
 
         public ArtistController(IArtistStore artistStore)
         {
@@ -23,7 +24,7 @@ namespace FagweekendQ3.Controllers
         public ActionResult Edit(string id)
         {
             ArtistViewModel model;
-            if(id != string.Empty)
+            if(Guid.Parse(id) != Guid.Empty)
             {
                 var artist = _artistStore.Get(id);
                 model = new ArtistViewModel { Id = artist.Id, Name = artist.Name };
@@ -39,7 +40,10 @@ namespace FagweekendQ3.Controllers
         [HttpPost]
         public ActionResult Edit(ArtistViewModel model)
         {
-            if(model.Id != string.Empty)
+            if (!ModelState.IsValid)
+                return View(model);
+
+            if (Guid.Parse(model.Id) != Guid.Empty)
             {
                 var artist = _artistStore.Get(model.Id);
                 artist.ChangeName(model.Name);

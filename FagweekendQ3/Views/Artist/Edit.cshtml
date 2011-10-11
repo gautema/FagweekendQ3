@@ -5,9 +5,13 @@
 }
 
 <h2>Rediger @Model.Name</h2>
+@Html.ValidationSummary()
+
 @using(Html.BeginForm()){
     @Html.HiddenFor(x => x.Id)
     @Html.EditorFor(x => x.Name)
-
+    @Html.ValidationMessageFor(x => x.Name)
+    
+    <br />
     <input type="submit" />
 }
