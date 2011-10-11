@@ -7,36 +7,9 @@
 @Html.Partial("AlbumPartial")
 
 <script type="text/javascript">
-    getModelData = function () {
-        return {
-            "Name": "John",
-            "Genre": "Testing",
-            "Tracks":
-                [
-                    {
-                        "Name": "home",
-                        "TrackLength": 242,
-                        "TrackNo": 1
-                    },
-                    {
-                        "Name": "fax",
-                        "TrackLength": 300,
-                        "TrackNo": 2
-                    }
-                ]
-        };
-    };
-
     $(document).ready(function () {
-//        alert("test");
-        //        var modelData = getModelData();
-
-        //        setupModel(modelData);
         $.post("/Album/Get?id=alb2", function (data) {
-            //            alert(data);
             setupModel(data);
         });
     });
-
-    
 </script>
