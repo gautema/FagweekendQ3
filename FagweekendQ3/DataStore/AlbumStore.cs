@@ -97,6 +97,11 @@ namespace FagweekendQ3.DataStore
         {
             Genre = genre;
         }
+
+        public void AddTrack(Track track)
+        {
+            Tracks.Add(track);
+        }
     }
 
     public class Track

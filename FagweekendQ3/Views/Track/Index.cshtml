@@ -1,0 +1,14 @@
+﻿@using FagweekendQ3.ViewModels
+@model AddTrackViewModel
+@{
+    ViewBag.Title = "Add new track..";
+}
+
+<h2>Legg til nytt track til @Model.Name</h2>
+@using(Html.BeginForm("New", "Track")){
+    @Html.HiddenFor(x => x.AlbumId)
+    @Html.EditorFor(x => x.TrackNo)
+    @Html.EditorFor(x => x.Name)
+    @Html.EditorFor(x => x.TrackLength)
+    <input type="submit" />
+}
