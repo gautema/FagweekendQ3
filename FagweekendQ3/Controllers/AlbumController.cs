@@ -9,11 +9,11 @@ namespace FagweekendQ3.Controllers
 {
     public class AlbumController : Controller
     {
-        private IAlbumStore _albumStore;
+        private readonly IAlbumStore _albumStore;
 
-        public AlbumController()
+        public AlbumController(IAlbumStore albumStore)
         {
-            _albumStore = new AlbumStore();
+            _albumStore = albumStore;
         }
 
         public ActionResult Index()

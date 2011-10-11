@@ -7,11 +7,11 @@ namespace FagweekendQ3.Controllers
 {
     public class ArtistController : Controller
     {
-        private IArtistStore _artistStore;
+        private readonly IArtistStore _artistStore;
 
-        public ArtistController()
+        public ArtistController(IArtistStore artistStore)
         {
-            _artistStore = new ArtistStore();
+            _artistStore = artistStore;
         }
 
         public ActionResult Index()

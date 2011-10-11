@@ -1,4 +1,4 @@
-# Faghelg Q3 2011
+﻿# Faghelg Q3 2011
 
 ## Forutsetninger
 + Visual Studio 2010 SP1
@@ -9,7 +9,7 @@
 
 - Hent prosjekt denne kildekoden fra github.Bruk enten download link oppe til høyre, eller klone med git.
 - Kompiler og start prosjektet. Se på hvordan oppdatering av artister er gjort.
-- Hent StructureMap-MVC3 fra NuGet
+- Hent StructureMap.MVC3 fra NuGet
 - Ta inn DataStore fra constructoren.
 - Lag et action filter for å logge til Debug.WriteLine med hvilke actions som kalles.
 - Ta utgangspunkt i Artist og lag tilsvarende for Album.
