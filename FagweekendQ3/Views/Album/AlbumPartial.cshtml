@@ -1,4 +1,5 @@
-﻿<p>Album: <span data-bind="text: Name()"></span></p>
+﻿
+<p>Album: <span data-bind="text: Name()"></span></p>
 <p>Genre:<span data-bind="text: Genre()"></span></p>
 <p>Total length <span data-bind="text: TotalLength()"></span></p>
 
@@ -36,7 +37,6 @@
         }, viewModel);
 
         viewModel.AddTrack = function () {
-            alert(viewModel.Tracks().length);
             viewModel.Tracks.push({ TrackNo: ko.observable(5), Name: ko.observable("test"), TrackLength: ko.observable(213) });
             //push track to server
         };
@@ -44,26 +44,3 @@
         ko.applyBindings(viewModel);
     };
 </script>
-
-@*<script type="text/javascript">
-
-
-    $(document).ready(function () {
-
-        var rawModel = getModelData();
-        var viewModel = ko.mapping.fromJS(rawModel);
-
-        viewModel.TotalLength = ko.dependentObservable(function () {
-            var sum = 0;
-            for (var i = 0; i < this.Tracks().length; i++) {
-                sum = sum + this.Tracks()[i].TrackLength();
-            };
-            return (new Date).clearTime()
-              .addSeconds(sum)
-              .toString('H:mm:ss');
-        }, viewModel);
-
-
-        ko.applyBindings(viewModel);
-    });
-</script>*@
