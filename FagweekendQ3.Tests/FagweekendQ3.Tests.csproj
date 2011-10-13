@@ -54,9 +54,6 @@
     <Compile Include="When_getting_index.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\FagweekendQ3\FagweekendQ3.csproj">
       <Project>{D2CB47C0-356C-411B-B796-8A825DE49149}</Project>
       <Name>FagweekendQ3</Name>
