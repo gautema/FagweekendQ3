@@ -6,7 +6,7 @@ namespace FagweekendQ3.DataStore
 {
     public class AlbumStore :  IAlbumStore
     {
-        private static IList<Album> albums = new List<Album>
+        private IList<Album> albums = new List<Album>
                                                  {
                                                      new Album("alb1", "art1", "Vulgar Display of Power",
                                                                new List<Track>

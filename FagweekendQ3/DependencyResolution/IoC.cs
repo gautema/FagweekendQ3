@@ -10,8 +10,8 @@ namespace FagweekendQ3 {
                                         scan.TheCallingAssembly();
                                         scan.WithDefaultConventions();
                                     });
-                            x.For<IAlbumStore>().Use<AlbumStore>();
-                            x.For<IArtistStore>().Use<ArtistStore>();
+                            x.For<IAlbumStore>().Singleton().Use<AlbumStore>();
+                            x.For<IArtistStore>().Singleton().Use<ArtistStore>();
                         });
             return ObjectFactory.Container;
         }

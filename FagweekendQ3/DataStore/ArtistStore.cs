@@ -6,7 +6,7 @@ namespace FagweekendQ3.DataStore
 {
     public class ArtistStore : IArtistStore
     {
-        private static IList<Artist> artists = new List<Artist>
+        private IList<Artist> artists = new List<Artist>
                                                    {
                                                        new Artist("art1", "Pantera"),
                                                        new Artist("art2", "The Smiths"),
