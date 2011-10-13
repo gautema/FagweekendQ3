@@ -9,13 +9,14 @@
    <tbody data-bind='template: { name: "trackTemplate", 
                             foreach: Tracks }'></tbody>
 </table>
+<button data-bind="click: AddTrack">Add Gift</button>
 
 
 <script type="text/x-jquery-tmpl" id="trackTemplate">
     <tr>
-        <td>${TrackNo()}</td>
-        <td>${Name()}</td>
-        <td>${TrackLength()}</td>       
+        <td><input data-bind='enable: TrackNo() ? false : true, value: TrackNo(), valueUpdate: "afterkeydown"' /></td>
+        <td><input data-bind='value: Name(), valueUpdate: "afterkeydown"' /></td>
+        <td><input data-bind='value: TrackLength(), valueUpdate: "afterkeydown"' /></td>
     </tr>
 </script>
 
@@ -34,6 +35,11 @@
               .toString('H:mm:ss');
         }, viewModel);
 
+        viewModel.AddTrack = function () {
+            alert(viewModel.Tracks().length);
+            viewModel.Tracks.push({ TrackNo: ko.observable(5), Name: ko.observable("test"), TrackLength: ko.observable(213) });
+            //push track to server
+        };
 
         ko.applyBindings(viewModel);
     };
